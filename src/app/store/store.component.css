@@ -35,7 +35,7 @@
 
 .btn-circle:hover {
     /* Estilos de botón al pasar el mouse */
-    box-shadow: 0 0 10px rgba(71, 59, 228, 0.5); /* Añade una sombra alrededor del botón */
+    box-shadow: 0 0 10px rgba(248, 8, 8, 0.5); /* Añade una sombra alrededor del botón */
 }
 
 .font-title-icon {
@@ -49,6 +49,25 @@
     font-family: serif;
 }
 
-.img-carousel-height {
+.img-carousel-height img{
     height: 200px;
+    width: 300px;
+}
+.img-margin-left{
+    margin-left: 275px;
+}
+
+.color-previous{
+    color: rgb(236, 159, 14);
+}
+
+.margin-search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.margin-right-search {
+
+    margin-right: 3px;
 }

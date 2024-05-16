@@ -51,7 +51,7 @@
 
 .img-carousel-height img{
     height: 200px;
-    width: 300px;
+    width: auto;
 }
 .img-margin-left{
     margin-left: 275px;

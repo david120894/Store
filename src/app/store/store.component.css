@@ -34,7 +34,6 @@
 }
 
 .btn-circle:hover {
-    /* Estilos de botón al pasar el mouse */
     box-shadow: 0 0 10px rgba(248, 8, 8, 0.5); /* Añade una sombra alrededor del botón */
 }
 
@@ -68,6 +67,9 @@
 }
 
 .margin-right-search {
-
     margin-right: 3px;
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
 }

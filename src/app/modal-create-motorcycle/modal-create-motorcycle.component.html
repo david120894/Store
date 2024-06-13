@@ -1,29 +1,63 @@
-<h1>{{name}}</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-1 ">
-      <label>Marca: </label>
-    </div>
-    <div class="col-sm-12 col-md-5 mb-2">
-      <input class="form-control">
-    </div>
-    <div class="col-sm-12 col-md-1 ">
-      <label>Modelo: </label>
-    </div>
-    <div class="col-sm-12 col-md-5 mb-2">
-      <input class="form-control">
-    </div>
-    <div class="col-sm-12 col-md-1">
-      <label>Color: </label>
-    </div>
-    <div class="col-sm-12 col-md-5 mb-2">
-      <input class="form-control">
-    </div>
-    <div class="col-sm-12 col-md-1">
-      <label>year: </label>
-    </div>
-    <div class="col-sm-12 col-md-5 mb-2">
-      <input class="form-control">
+<div class="modal-header">
+  <h4 class="modal-title">Guardar Moto</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <p>Hello, {{ name }}!</p>
+  <div class="container" [formGroup]="formMotorcycle">
+    <div class="row">
+      <div class="col-sm-12 col-md-1 ">
+        <label>Marca: </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+        <input class="form-control"
+        formControlName="brand">
+      </div>
+      <div class="col-sm-12 col-md-1 ">
+        <label>Modelo: </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+        <input class="form-control"
+        formControlName="model">
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label>Color: </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+        <input class="form-control"
+        formControlName="color">
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label>Año: </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+        <input class="form-control"
+        formControlName="year">
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label>Precio: </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+        <input class="form-control"
+        formControlName="price">
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label>T.de Moto </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+          <ng-select class="form-control ng-select-custom"
+                     formControlName="idTypeMotorcycle"
+                     [items]="dataMotorcycleType"
+                     bindValue="id"
+                     bindLabel="motorcycleType">
+          </ng-select>
+      </div>
     </div>
   </div>
 </div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-danger" (click)="activeModal.close('Close click')">Cancelar</button>
+  <button type="button" class="btn btn-outline-primary" (click)="activeModal.close('save')">Guardar</button>
+</div>
+
+

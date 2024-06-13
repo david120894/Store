@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MotorcycleService} from "../service/motorcycle.service";
 
 @Component({
@@ -10,6 +10,7 @@ import {MotorcycleService} from "../service/motorcycle.service";
 })
 export class ModalCreateMotorcycleComponent implements OnInit{
 
+  @Input() name = ''
   dataMotorcycle: any
   constructor(private motorcycle: MotorcycleService) {
   }

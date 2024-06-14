@@ -1,0 +1,73 @@
+.navbar-color {
+  background-color: rgb(236, 159, 14);
+  height: 2cm;
+}
+
+.img-motor {
+  height: 2cm;
+  width: 4cm;
+  margin-left: 2px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.font-title {
+  font-family: serif;
+  font-size: 30px;
+}
+
+.img-motor-icon{
+  width: 40px; /* ajusta el ancho según tu preferencia */
+  height: 40px; /* ajusta la altura según tu preferencia */
+  border-radius: 60%; /* para hacer que la imagen tenga forma de círculo */
+
+}
+
+.btn-circle {
+  width: 55px; /* Ajusta el ancho del botón */
+  height: 55px; /* Ajusta la altura del botón */
+  border-radius: 50%; /* Hace que el botón tenga forma de círculo */
+  padding: 0; /* Elimina el relleno interno del botón */
+  /* Oculta cualquier contenido que se desborde del botón */
+  box-shadow: 0 0 8px rgba(5, 5, 7, 0.5);
+  transition: box-shadow 0.3s;
+}
+
+.btn-circle:hover {
+  /* Estilos de botón al pasar el mouse */
+  box-shadow: 0 0 10px rgba(248, 8, 8, 0.5); /* Añade una sombra alrededor del botón */
+}
+
+.font-title-icon {
+  font-family: serif;
+  font-size: x-small;
+}
+
+.btn-space button{
+  margin-right: 7px;
+  margin-bottom: 7px;
+  font-family: serif;
+}
+
+.img-carousel-height img{
+  height: 200px;
+  width: 300px;
+}
+.img-margin-left{
+  margin-left: 275px;
+}
+
+.color-previous{
+  color: rgb(236, 159, 14);
+}
+
+.margin-search{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.margin-right-search {
+
+  margin-right: 3px;
+}

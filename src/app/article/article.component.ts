@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {MotorcycleService} from "../service/motorcycle.service";
 
 @Component({
@@ -8,15 +8,17 @@ import {MotorcycleService} from "../service/motorcycle.service";
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
 })
-export class ArticleComponent implements OnInit{
+export class ArticleComponent implements OnInit {
 
   dataMotorcycle: any
+  @Input() refreshView = ''
   constructor(private readonly motorcycleService: MotorcycleService) {
   }
 
   ngOnInit() {
     this.getMotorcycle()
   }
+
   getMotorcycle() {
     this.motorcycleService.getMotorcycle().subscribe((data:any)=> {
       this.dataMotorcycle = data

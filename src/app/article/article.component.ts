@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {MotorcycleService} from "../service/motorcycle.service";
+import {MotorcycleUseCase} from "../domain/motorcycle.usecase";
 
 @Component({
   selector: 'app-article',
@@ -12,16 +13,16 @@ export class ArticleComponent implements OnInit {
 
   dataMotorcycle: any
   @Input() refreshView = ''
-  constructor(private readonly motorcycleService: MotorcycleService) {
+  constructor(private readonly motorcycleService: MotorcycleService,
+              private readonly motorcycleUseCase: MotorcycleUseCase) {
   }
 
-  ngOnInit() {
-    this.getMotorcycle()
+  async ngOnInit() {
+    await this.getMotorcycle()
   }
 
-  getMotorcycle() {
-    this.motorcycleService.getMotorcycle().subscribe((data:any)=> {
-      this.dataMotorcycle = data
-    })
+  async getMotorcycle() {
+    this.dataMotorcycle = await this.motorcycleUseCase.getMotorcycle()
+
   }
 }

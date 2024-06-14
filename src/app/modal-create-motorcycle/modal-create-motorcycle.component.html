@@ -5,7 +5,6 @@
 <div class="modal-body">
   <p>Hello, {{ name }}!</p>
   <div class="container" [formGroup]="formMotorcycle">
-    <span> {{formMotorcycle.value|json}}</span>
     <div class="row">
       <div class="col-sm-12 col-md-1 ">
         <label>Marca: </label>
@@ -33,7 +32,6 @@
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
-               type="number"
         formControlName="year">
       </div>
       <div class="col-sm-12 col-md-1">
@@ -51,8 +49,7 @@
                      formControlName="idTypeMotorcycle"
                      [items]="dataMotorcycleType"
                      bindValue="id"
-                     bindLabel="motorcycleType"
-                    dropdownPosition="top">
+                     bindLabel="motorcycleType">
           </ng-select>
       </div>
     </div>

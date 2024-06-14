@@ -4,6 +4,7 @@ import {ModalCreateMotorcycleComponent} from "../modal-create-motorcycle/modal-c
 import {CarouselMotorcycleComponent} from "../carousel-motorcycle/carousel-motorcycle.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {MotorcycleService} from "../service/motorcycle.service";
+import {MotorcycleUseCase} from "../domain/motorcycle.usecase";
 
 @Component({
   selector: 'app-store',
@@ -20,11 +21,12 @@ export class StoreComponent implements OnInit{
   message = ""
   dataMotorcycleType: any
   constructor(private modalService: NgbModal,
-              private readonly motorcycleService: MotorcycleService) {
+              private readonly motorcycleService: MotorcycleService,
+              private readonly motorcycleUseCase: MotorcycleUseCase) {
   }
 
-  ngOnInit() {
-    this.getMotorcycleType()
+  async ngOnInit() {
+    await this.getMotorcycleType()
   }
 
   openModal() {
@@ -38,10 +40,8 @@ export class StoreComponent implements OnInit{
     })
   }
 
-  getMotorcycleType() {
-    this.motorcycleService.getMotorcycleType().subscribe((data: any)=>{
-      this.dataMotorcycleType = data
-      console.log(data)
-    })
+  async getMotorcycleType() {
+    const auxData = await this.motorcycleUseCase.getMotorcycle()
+    console.log('data prueba',auxData)
   }
 }

@@ -17,6 +17,7 @@ import {MotorcycleService} from "../service/motorcycle.service";
 export class StoreComponent implements OnInit{
 
   jesus="david jesus"
+  message = ""
   dataMotorcycleType: any
   constructor(private modalService: NgbModal,
               private readonly motorcycleService: MotorcycleService) {
@@ -33,7 +34,7 @@ export class StoreComponent implements OnInit{
       });
     modalRef.componentInstance.name=this.jesus
     modalRef.result.then((result) => {
-      console.log(`${result}`)
+      this.message = result
     })
   }
 

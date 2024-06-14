@@ -40,17 +40,32 @@ export class ModalCreateMotorcycleComponent implements OnInit{
   }
 
   ngOnInit() {
-    // this.getMotorcycle()
     this.getMotorcycleType()
   }
-  //
-  // getMotorcycle() {
-  //   this.motorcycle.getMotorcycle().subscribe((data:any) => {
-  //     this.dataMotorcycle = data
-  //     console.log("daga",data)
-  //   })
-  // }
 
+  createMotorcycle() {
+    const params = {
+      brand: this.form['brand'].value,
+      model: this.form['model'].value,
+      year: this.form['year'].value,
+      color: this.form['color'].value,
+      price: this.form['price'].value,
+      motorcycleType: {
+        id: this.form['idTypeMotorcycle'].value
+      }
+
+    }
+    this.motorcycleService.addMotorcycle(params).subscribe(
+      response => {
+        console.log('Motorcycle added successfully', response);
+        this.activeModal.close('success')
+      },
+      error => {
+        console.error('Error adding motorcycle', error);
+      }
+    );
+    console.log(params)
+  }
   getMotorcycleType() {
     this.motorcycleService.getMotorcycleType().subscribe((data: any)=>{
       this.dataMotorcycleType = data

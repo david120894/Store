@@ -51,4 +51,5 @@
 
 .img-carousel-height {
     height: 200px;
+    width: fit-content;
 }

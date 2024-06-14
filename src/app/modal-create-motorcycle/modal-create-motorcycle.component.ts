@@ -4,6 +4,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {NgSelectModule} from "@ng-select/ng-select";
+import {MotorcycleUseCase} from "../domain/motorcycle.usecase";
 
 @Component({
   selector: 'app-modal-create-motorcycle',
@@ -36,14 +37,15 @@ export class ModalCreateMotorcycleComponent implements OnInit{
   }
 
   constructor(private readonly motorcycleService: MotorcycleService,
-              public activeModal: NgbActiveModal ) {
+              public activeModal: NgbActiveModal,
+              private readonly motorcycleUseCase: MotorcycleUseCase) {
   }
 
-  ngOnInit() {
-    this.getMotorcycleType()
+  async ngOnInit() {
+    await this.getMotorcycleType()
   }
 
-  createMotorcycle() {
+  async createMotorcycle() {
     const params = {
       brand: this.form['brand'].value,
       model: this.form['model'].value,
@@ -53,23 +55,12 @@ export class ModalCreateMotorcycleComponent implements OnInit{
       motorcycleType: {
         id: this.form['idTypeMotorcycle'].value
       }
-
     }
-    this.motorcycleService.addMotorcycle(params).subscribe(
-      response => {
-        console.log('Motorcycle added successfully', response);
-        this.activeModal.close('success')
-      },
-      error => {
-        console.error('Error adding motorcycle', error);
-      }
-    );
-    console.log(params)
+    await this.motorcycleUseCase.createMotorcycle(params)
+    this.activeModal.close('success')
   }
-  getMotorcycleType() {
-    this.motorcycleService.getMotorcycleType().subscribe((data: any)=>{
-      this.dataMotorcycleType = data
-      console.log(data)
-    })
+
+  async getMotorcycleType() {
+    this.dataMotorcycleType = await this.motorcycleUseCase.getMotorcycleType()
   }
 }

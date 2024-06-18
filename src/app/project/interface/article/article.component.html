@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="mb-1 mt-1 btn-group">
+    <button class="btn btn-outline-success"
+    (click)="saveMotorcycle()">
+      <div class="font-title-icon">Agregar</div>
+    </button>
+    <button class="btn btn-outline-success"
+    (click)="saveMotorcycleType()">
+      <div class="font-title-icon">Tipo Moto</div>
+    </button>
+  </div>
+  <div class="row">
+    @for (motorCycle of dataMotorcycle; track motorCycle) {
+      <div class="col-sm-12 col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <strong>Brand:</strong> {{ motorCycle.brand }}
+            <br>
+            <strong>Model:</strong> {{ motorCycle.model }}
+            <br>
+            <strong>Year:</strong> {{ motorCycle.year }}
+            <br>
+            <strong>Color:</strong> {{ motorCycle.color }}
+            <br>
+            <strong>Price:</strong> {{ motorCycle.price }}
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

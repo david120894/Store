@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4>
+    Tipo de Motos
+  </h4>
+  <button class="btn-close" (click)="activeModal.close()">
+  </button>
+</div>
+<div class="modal-body">
+  <div class="d-flex" [formGroup]="formMotorcycleType">
+    <div class="col-sm-12 col-md-2">
+      Nombre
+    </div>
+    <div class="col-sm-12 col-md-10">
+      <input class="form-control"
+             formControlName="name">
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-outline-danger" (click)="activeModal.close()">
+    Cerrar
+  </button>
+  <button class="btn-outline-primary btn" (click)="saveMotorcycleType()">
+    Guardar
+  </button>
+</div>

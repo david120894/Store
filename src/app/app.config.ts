@@ -4,10 +4,10 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import {provideHttpClient, withFetch} from "@angular/common/http";
-import {MotorcycleRepository} from "./domain/motorcycle.repository";
-import {MotorcycleRestRepository} from "./infrastructure/rest/motorcycle.repository";
-import {MotorcycleUseCase} from "./domain/motorcycle.usecase";
-import {MotorcycleUcase} from "./usecase/motorcycle.usecase";
+import {MotorcycleRepository} from "./project/domain/motorcycle.repository";
+import {MotorcycleRestRepository} from "./project/infrastructure/rest/motorcycle.repository";
+import {MotorcycleUseCase} from "./project/domain/motorcycle.usecase";
+import {MotorcycleUcase} from "./project/usecase/motorcycle.usecase";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),

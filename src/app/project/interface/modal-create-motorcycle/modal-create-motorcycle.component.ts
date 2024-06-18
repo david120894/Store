@@ -1,10 +1,9 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {MotorcycleService} from "../service/motorcycle.service";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {NgSelectModule} from "@ng-select/ng-select";
-import {MotorcycleUseCase} from "../domain/motorcycle.usecase";
+import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
 
 @Component({
   selector: 'app-modal-create-motorcycle',
@@ -36,8 +35,7 @@ export class ModalCreateMotorcycleComponent implements OnInit{
     return this.formMotorcycle.controls
   }
 
-  constructor(private readonly motorcycleService: MotorcycleService,
-              public activeModal: NgbActiveModal,
+  constructor(public activeModal: NgbActiveModal,
               private readonly motorcycleUseCase: MotorcycleUseCase) {
   }
 

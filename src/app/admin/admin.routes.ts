@@ -1,14 +1,16 @@
 import {Routes} from "@angular/router";
-import {RegisterComponent} from "./register/register.component";
-import {LoginComponent} from "./login/login.component";
+import {AdminLayoutComponent} from "./admin-layout/admin-layout.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 export const ADMIN_ROUTES: Routes = [
   {
     path: '',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+      }
+    ]
   }
 ]

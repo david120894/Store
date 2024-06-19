@@ -8,7 +8,8 @@ import {lastValueFrom} from "rxjs";
 })
 export class MotorcycleRestRepository implements MotorcycleRepository {
 
-   url = "http://localhost:8080/api/v1"
+  url = "http://localhost:8080/api/v1"
+
   constructor(private httpMotorcycle: HttpClient) {
   }
 
@@ -19,17 +20,45 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
-  getMotorcycleType() : Promise<any> {
-     const url = `${this.url}/motorcycle_type/list`
+  getMotorcycleType(): Promise<any> {
+    const url = `${this.url}/motorcycle_type/list`
     return lastValueFrom(
       this.httpMotorcycle.get(url)
     )
   }
 
-  createMotorcycle(body: any):Promise<any> {
-     const  url = `${this.url}/motorcycle/create`
+  getMotorcycleTypeById(id: number): Promise<any> {
+    const url = `${this.url}/motorcycle_type/view/${id}`
     return lastValueFrom(
-      this.httpMotorcycle.post(url,body)
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  createMotorcycle(body: any): Promise<any> {
+    const url = `${this.url}/motorcycle/create`
+    return lastValueFrom(
+      this.httpMotorcycle.post(url, body)
+    )
+  }
+
+  createMotorcycleType(body: any): Promise<any> {
+    const url = `${this.url}/motorcycle_type/create`
+    return lastValueFrom(
+      this.httpMotorcycle.post(url, body)
+    )
+  }
+
+  updateMotorcycleType(id: number, body: any): Promise<any> {
+    const url = `${this.url}/motorcycle_type/update/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.put(url, body)
+    )
+  }
+
+  deleteMotorcycleType(id: number): Promise<any> {
+    const url = `${this.url}/motorcycle_type/delete/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.delete(url)
     )
   }
 }

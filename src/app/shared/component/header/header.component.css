@@ -1,0 +1,22 @@
+.navbar-color {
+  background-color: rgb(236, 159, 14);
+  height: 2cm;
+}
+
+.margin-search{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.margin-right-search {
+  margin-right: 3px;
+}
+
+.img-motor {
+  height: 2cm;
+  width: 4cm;
+  margin-left: 2px;
+  margin-right: 5px;
+  border-radius: 2px;
+}

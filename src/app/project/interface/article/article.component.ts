@@ -27,19 +27,5 @@ export class ArticleComponent implements OnInit {
     this.dataMotorcycle = await this.motorcycleUseCase.getMotorcycle()
 
   }
-  saveMotorcycle() {
-    const modalRef = this.ngbModal.open(ModalCreateMotorcycleComponent,
-      {
-        size : 'lg'
-      })
-    modalRef.componentInstance.name='David Jesus'
-  }
 
-  saveMotorcycleType() {
-    const modalRef = this.ngbModal.open(ModalCreteMotorcycletypeComponent,
-      {
-        size : 'md'
-      })
-    modalRef.componentInstance.name='David Jesus'
-  }
 }

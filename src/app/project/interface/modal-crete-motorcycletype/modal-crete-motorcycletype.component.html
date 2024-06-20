@@ -12,16 +12,17 @@
     </div>
     <div class="col-sm-12 col-md-10">
       <input class="form-control"
-             formControlName="nameMotorcycleType">
+             formControlName="nameMotorcycleType"
+      placeholder="Ingrese tipo de Moto">
     </div>
   </div>
   <hr>
   <div class="">
-    <table class="table table-bordered">
-      <thead>
+    <table class="table table-style table-bordered table-hover">
+      <thead class="color-thead">
       <tr>
         <th>
-          Nombre
+          Tipo de Moto
         </th>
         <th>
           Acciones
@@ -55,7 +56,7 @@
 
 <div class="modal-footer">
   <button class="btn btn-outline-danger" (click)="activeModal.close()">
-    <i class="bi bi-x-lg m-1"></i>Cerrar
+    Cancelar
   </button>
   @if (!checkedButton) {
     <button class="btn btn-outline-primary" (click)="saveMotorcycleType()">

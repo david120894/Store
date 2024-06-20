@@ -1,3 +1,7 @@
+table thead {
+  background-color: rgba(213, 156, 32, 0.88);
+  text-align: center;
+}
 .overflow-motorcycleType {
   display: block;
   max-height: 250px;

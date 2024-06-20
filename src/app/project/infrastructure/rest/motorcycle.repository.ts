@@ -27,6 +27,20 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
+  getMotorcycleById(id:number): Promise<any> {
+    const url = `${this.url}/motorcycle/view/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  updateMotorcycle(id: number, body: any): Promise<any> {
+    const url = `${this.url}/motorcycle/update/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.put(url,body)
+    )
+  }
+
   getMotorcycleTypeById(id: number): Promise<any> {
     const url = `${this.url}/motorcycle_type/view/${id}`
     return lastValueFrom(

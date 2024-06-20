@@ -1,0 +1,20 @@
+.overflow-motorcycleType {
+  display: block;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.overflow-motorcycleType tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table thead, .table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.width-table{
+  width: 233px;
+}

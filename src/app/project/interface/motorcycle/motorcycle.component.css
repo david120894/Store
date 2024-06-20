@@ -1,0 +1,15 @@
+.color-thead th {
+  background-color: darkslategray;
+  text-align: center;
+}
+
+.table-style {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid darkslategray;
+}
+
+.btn-align {
+  display: flex;
+  justify-content: center;
+}

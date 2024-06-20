@@ -56,6 +56,7 @@ export class ModalCreateMotorcycleComponent implements OnInit{
     }
     await this.motorcycleUseCase.createMotorcycle(params)
     this.activeModal.close('success')
+    window.location.reload()
   }
 
   async getMotorcycleType() {

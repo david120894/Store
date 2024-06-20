@@ -1,0 +1,78 @@
+
+<div class="container mt-2">
+  <div>
+    <button class="btn btn-success mb-1"
+    (click)="openModalCreateMotorcycle()">
+      <i class="bi bi-plus-circle"></i>
+      Agregar
+    </button>
+    <table class="table table-style table-bordered">
+      <thead>
+      <tr class="color-thead">
+        <th>
+          Marca
+        </th>
+        <th>
+          T.Moto
+        </th>
+        <th>
+          Modelo
+        </th>
+        <th>
+          Motor
+        </th>
+        <th>
+          Color
+        </th>
+        <th>
+          Year
+        </th>
+        <th>
+          Precio
+        </th>
+        <th>
+          Acciones
+        </th>
+      </tr>
+      </thead>
+      <tbody class="overflow-motorcycle">
+        @for (motorcycle of dataMotorcycle; track motorcycle) {
+          <tr>
+            <td>
+              {{ motorcycle.brand }}
+            </td>
+            <td>
+              {{ motorcycle.motorcycleType.motorcycleType }}
+            </td>
+            <td>
+              {{ motorcycle.model }}
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              {{ motorcycle.color }}
+            </td>
+            <td>
+              {{ motorcycle.year }}
+            </td>
+            <td>
+              {{ motorcycle.price }}
+            </td>
+            <td colspan="d-flex justify-content-center">
+              <div class="btn-group btn-align">
+                <button class="btn btn-outline-danger"
+                ngbTooltip="Eliminar">
+                  <i class="bi bi-trash3"></i>
+                </button>
+                <button class="btn btn-outline-success"
+                ngbTooltip="Editar">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+    </table>
+  </div>
+</div>

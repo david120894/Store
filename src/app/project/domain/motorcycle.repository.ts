@@ -4,8 +4,10 @@ export abstract class MotorcycleRepository {
 
   abstract createMotorcycle(body: any): Promise<any>
 
-  // abstract updateMotorcycle(body: any): Promise<any>
-  //
+  abstract updateMotorcycle(id: number, body: any): Promise<any>
+
+  abstract getMotorcycleById(id:number): Promise<any>
+
   // abstract deleteMotorcycle(body: any): Promise<any>
 
   abstract getMotorcycleType(): Promise<any>

@@ -6,6 +6,7 @@ import { ArticleComponent } from './project/interface/article/article.component'
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NavbarComponent} from "./shared/component/navbar/navbar.component";
 import {HeaderComponent} from "./shared/component/header/header.component";
+import {ToastrModule, ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ import {HeaderComponent} from "./shared/component/header/header.component";
     CommonModule,
     ArticleComponent,
     NgbModule,
-   NavbarComponent,
-    HeaderComponent],
+    NavbarComponent,
+    HeaderComponent,
+  ToastrModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

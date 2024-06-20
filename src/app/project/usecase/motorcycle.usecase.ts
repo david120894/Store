@@ -17,6 +17,13 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.createMotorcycle(body);
   }
 
+  getMotorcycleById(id: number): Promise<any> {
+    return this.motorcycleRepository.getMotorcycleById(id);
+  }
+  updateMotorcycle(id: number, body: any): Promise<any> {
+    return this.motorcycleRepository.updateMotorcycle(id, body);
+  }
+
   getMotorcycleType() : Promise<any> {
     return this.motorcycleRepository.getMotorcycleType()
   }

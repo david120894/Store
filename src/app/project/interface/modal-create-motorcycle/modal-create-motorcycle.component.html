@@ -10,53 +10,73 @@
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
-        formControlName="brand">
+               formControlName="brand"
+        placeholder="Ingrese marca">
       </div>
       <div class="col-sm-12 col-md-1 ">
         <label>Modelo: </label>
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
-        formControlName="model">
+               formControlName="model"
+        placeholder="Ingrese modelo">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>Color: </label>
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
-        formControlName="color">
+               formControlName="color"
+        placeholder="Ingrese color">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>Año: </label>
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
-        formControlName="year">
+               formControlName="year"
+        placeholder="Ingrese año">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>Precio: </label>
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
-        formControlName="price">
+               formControlName="price"
+        placeholder="Ingrese precio">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>T.de Moto </label>
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
-          <ng-select
-                     formControlName="idTypeMotorcycle"
-                     [items]="dataMotorcycleType"
-                     bindValue="id"
-                     bindLabel="motorcycleType">
-          </ng-select>
+        <ng-select
+          formControlName="idTypeMotorcycle"
+          [items]="dataMotorcycleType"
+          bindValue="id"
+          bindLabel="motorcycleType"
+        placeholder="Seleccione tipo de moto">
+        </ng-select>
       </div>
     </div>
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-danger" (click)="activeModal.close('Close click')">Cancelar</button>
-  <button type="button" class="btn btn-outline-primary" (click)="createMotorcycle()">Guardar</button>
+  <button type="button" class="btn btn-outline-danger" (click)="activeModal.close('Close click')">
+    Cancelar
+  </button>
+
+  @if (isEditMotorcycle) {
+    <button type="button" class="btn btn-outline-warning" (click)="updateMotorcycle()">
+      <i class="bi bi-floppy m-1"></i>
+      Actualizar
+    </button>
+  } @else {
+    <button type="button" class="btn btn-outline-primary" (click)="createMotorcycle()">
+      <i class="bi bi-floppy m-1"></i>
+      Guardar
+    </button>
+  }
+
 </div>
 
 

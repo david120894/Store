@@ -1,12 +1,12 @@
 .color-thead th {
-  background-color: darkslategray;
+  background-color: rgba(213, 156, 32, 0.88);
   text-align: center;
 }
 
 .table-style {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid darkslategray;
+  border: 2px solid rgba(213, 156, 32, 0.88);
 }
 
 .btn-align {

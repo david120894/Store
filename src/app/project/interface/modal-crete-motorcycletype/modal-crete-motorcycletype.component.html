@@ -28,19 +28,23 @@
         </th>
       </tr>
       </thead>
-      <tbody>
+      <tbody class="overflow-motorcycleType">
         @for (motorcycleType of dataMotorcycleType; track motorcycleType) {
           <tr>
-            <td>
+            <td class="width-table">
               {{ motorcycleType.motorcycleType }}
             </td>
             <td>
-              <button class="btn btn-outline-danger" (click)="deleteMotorcycleType(motorcycleType.id)">
-                Eliminar
-              </button>
-              <button class="btn btn-outline-success" (click)="editMotorcycleType(motorcycleType.id)">
-                Editar
-              </button>
+              <div class="btn-group">
+                <button class="btn btn-outline-danger" (click)="deleteMotorcycleType(motorcycleType.id)"
+                        ngbTooltip="Eliminar">
+                  <i class="bi bi-trash3"></i>
+                </button>
+                <button class="btn btn-outline-success" (click)="editMotorcycleType(motorcycleType.id)"
+                        ngbTooltip="Editar                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </div>
             </td>
           </tr>
         }
@@ -51,12 +55,13 @@
 
 <div class="modal-footer">
   <button class="btn btn-outline-danger" (click)="activeModal.close()">
-    Cerrar
+    <i class="bi bi-x-lg m-1"></i>Cerrar
   </button>
   @if (!checkedButton) {
-    <button class="btn-outline-primary btn" (click)="saveMotorcycleType()">
-      Guardar
+    <button class="btn btn-outline-primary" (click)="saveMotorcycleType()">
+      <i class="bi bi-floppy m-1"></i>Guardar
     </button>
+
   } @else {
     <button class="btn-outline-warning btn" (click)="updateMotorcycleType()">
       Actualizar

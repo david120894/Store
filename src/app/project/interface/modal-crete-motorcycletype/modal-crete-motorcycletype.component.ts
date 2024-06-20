@@ -1,13 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-modal-crete-motorcycletype',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbTooltip,
+    NgForOf
   ],
   templateUrl: './modal-crete-motorcycletype.component.html',
   styleUrl: './modal-crete-motorcycletype.component.css'
@@ -61,7 +64,8 @@ export class ModalCreteMotorcycletypeComponent implements OnInit {
       motorcycleType: this.form['nameMotorcycleType'].value
     }
     await this.motorcycleUseCase.updateMotorcycleType(parseInt(this.dataEditMotorcycleType.id), params)
-    this.activeModal.close()
+    await this.getAllMotorcycleType()
+    this.formMotorcycleType.reset()
     this.checkedButton = false;
   }
 

@@ -1,8 +1,10 @@
+import {Motorcycle} from "./model/motorcycle";
+
 export abstract class MotorcycleRepository {
 
   abstract getMotorcycle(): Promise<any>
 
-  abstract createMotorcycle(body: any): Promise<any>
+  abstract createMotorcycle(body: Motorcycle): Promise<any>
 
   abstract updateMotorcycle(id: number, body: any): Promise<any>
 

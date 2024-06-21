@@ -1,1 +1,47 @@
-<p>login works!</p>
+
+<div class=" d-flex justify-content-center">
+  <div class="card card-width mt-2">
+    <div class="pt-0 d-flex justify-content-end">
+      <button class="btn"
+      routerLink="/">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="card-body" [formGroup]="formUser">
+      <i class="bi bi-person-circle height-person"></i>
+      <div class="row">
+        <label class="col-sm-12 col-md-12">
+          Usuario
+        </label>
+        <div class="col-sm-12 col-md-12 position-relative">
+          <i class="bi bi-person bi-position start-0 position-absolute"></i>
+          <input class="form-control"
+                 formControlName="user"
+                 placeholder="user"
+          >
+        </div>
+        <label class="col-sm-2 col-md-12">
+          Contraseña
+        </label>
+        <div class="col-sm-12 col-md-12 mb-1 position-relative">
+          <i class="bi bi-key bi-position position-absolute start-0"></i>
+          <input class="form-control"
+                 type="password"
+                 formControlName="password"
+                 placeholder="******">
+        </div>
+        <div class="d-flex justify-content-sm-between">
+          <div>
+            <i class="bi bi-person-add"></i>
+            <a class="m-1" routerLink="/admin/register">Registrarse!</a>
+          </div>
+          <button class="btn btn-outline-success">
+            <span class="material-icons">
+              Ingresar
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import {MotorcycleUseCase} from "../domain/motorcycle.usecase";
 import {Injectable} from "@angular/core";
 import {MotorcycleRepository} from "../domain/motorcycle.repository";
+import {Motorcycle} from "../domain/model/motorcycle";
 
 @Injectable({
   providedIn : 'root'
@@ -13,7 +14,7 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.getMotorcycle()
   }
 
-  createMotorcycle(body: any): Promise<any> {
+  createMotorcycle(body: Motorcycle): Promise<any> {
     return this.motorcycleRepository.createMotorcycle(body);
   }
 

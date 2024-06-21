@@ -2,6 +2,7 @@ import {MotorcycleRepository} from "../../domain/motorcycle.repository";
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {lastValueFrom} from "rxjs";
+import {Motorcycle} from "../../domain/model/motorcycle";
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,7 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
-  createMotorcycle(body: any): Promise<any> {
+  createMotorcycle(body: Motorcycle): Promise<any> {
     const url = `${this.url}/motorcycle/create`
     return lastValueFrom(
       this.httpMotorcycle.post(url, body)

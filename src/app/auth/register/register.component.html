@@ -1,1 +1,72 @@
-<p>register works!</p>
+<div class="d-flex justify-content-center">
+  <div class="card card-width mt-2">
+    <div class="pt-0 d-flex justify-content-end">
+      <button class="btn"
+              routerLink="/">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="card-body" [formGroup]="formUser">
+      <i class="bi bi-people height-person"></i>
+      <div class="row">
+        <label class="col-sm-12 col-md-12">
+          Nombre
+        </label>
+        <div class="col-sm-12 col-md-12 position-relative">
+          <i class="bi bi-person bi-position start-0 position-absolute"></i>
+          <input class="form-control"
+                 formControlName="name"
+                 placeholder="Ingrese nombre"
+          >
+        </div>
+        <label class="col-sm-12 col-md-12">
+          Apellido
+        </label>
+        <div class="col-sm-12 col-md-12 position-relative">
+          <input class="form-control"
+                 formControlName="lastname"
+                 placeholder="Ingrese apellido">
+        </div>
+        <label class="col-sm-12 col-md-12">
+          Usuario
+        </label>
+        <div class="col-sm-12 col-md-12 position-relative">
+          <input class="form-control"
+                 formControlName="user"
+                 placeholder="Ingrese usuario">
+        </div>
+        <label class="col-sm-12 col-md-12">
+          Correo
+        </label>
+        <div class="col-sm-12 position-relative">
+          <i class="bi bi-at bi-position position-absolute start-0"></i>
+          <input class="form-control"
+                 formControlName="email"
+                 placeholder="Ingrese correo">
+        </div>
+        <label class="col-sm-2 col-md-12">
+          Contraseña
+        </label>
+        <div class="col-sm-12 col-md-12 mb-1 position-relative">
+          <i class="bi bi-key bi-position position-absolute start-0"></i>
+          <input class="form-control"
+                 type="password"
+                 formControlName="password"
+                 placeholder="******">
+        </div>
+        <div class="d-flex justify-content-sm-between">
+          <div>
+            <i class="bi bi-person-add"></i>
+            <a class="m-1" routerLink="/admin/login">Login!</a>
+          </div>
+          <button class="btn btn-outline-success">
+            <span class="material-icons">
+              Guardar
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

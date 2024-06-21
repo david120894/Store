@@ -3,7 +3,7 @@
   height: 2.5cm;
 }
 
-.margin-search{
+.margin-search {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,9 +20,16 @@
   margin-right: 5px;
   border-radius: 2px;
 }
+
 .font-title {
   font-size: 30px;
   color: aliceblue;
   font-weight: bold;
   font-family: C059;
+}
+
+.bi-person-fill {
+  color: aliceblue;
+  border-bottom: aliceblue;
+  font-size: 30px;
 }

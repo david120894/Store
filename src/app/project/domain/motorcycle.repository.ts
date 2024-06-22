@@ -1,8 +1,9 @@
 import {Motorcycle} from "./model/motorcycle";
+import {Brandcycle} from "./model/brandcycle";
 
 export abstract class MotorcycleRepository {
 
-  abstract getMotorcycle(): Promise<any>
+  abstract getMotorcycle(): Promise<Motorcycle>
 
   abstract createMotorcycle(body: Motorcycle): Promise<any>
 
@@ -10,7 +11,14 @@ export abstract class MotorcycleRepository {
 
   abstract getMotorcycleById(id:number): Promise<any>
 
-  // abstract deleteMotorcycle(body: any): Promise<any>
+  abstract getBrandMotorcycle(): Promise<any>
+
+  abstract getBrandMotorcycleById(id: number): Promise<any>
+
+  abstract createBrandMotorcycle(body: Brandcycle): Promise<any>
+
+  abstract updateBrandMotorcycle(id: number, body: Brandcycle): Promise<any>
+
 
   abstract getMotorcycleType(): Promise<any>
 

@@ -1,11 +1,36 @@
-
+<br>
 <div class="mt-1 container">
+  <div class="row">
+    <label class="col-sm-12 col-md-1">
+      Marca:
+    </label>
+    <div class="col-sm-12 col-md-3">
+      <ng-select
+      [items]="dataBrandMotorcycle"
+      bindValue="id"
+      bindLabel="brandcycle"
+      placeholder="Seleccione marca">
+      </ng-select>
+    </div>
+    <label class="col-sm-12 col-md-2">
+      Tipo de Moto:
+    </label>
+    <div class="col-sm-12 col-md-4">
+      <ng-select
+      [items]="dataMotorcycleType"
+      bindValue="id"
+      bindLabel="motorcycleType"
+      placeholder="Seleccione tipo de moto">
+      </ng-select>
+    </div>
+  </div>
+  <hr>
   <div class="row">
     @for (motorCycle of dataMotorcycle; track motorCycle) {
       <div class="col-sm-12 col-md-4">
         <div class="card mb-3">
           <div class="card-body">
-            <strong>Brand:</strong> {{ motorCycle.brand }}
+            <strong>Brand:</strong> {{ motorCycle.brandcycle?.brandcycle }}
             <br>
             <strong>Model:</strong> {{ motorCycle.model }}
             <br>

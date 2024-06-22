@@ -4,5 +4,5 @@
 
 .overflow {
   overflow-y: auto;
-  height: 560px;
+  max-height: 710px;
 }

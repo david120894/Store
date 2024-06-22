@@ -2,9 +2,10 @@ import {MotorcycleUseCase} from "../domain/motorcycle.usecase";
 import {Injectable} from "@angular/core";
 import {MotorcycleRepository} from "../domain/motorcycle.repository";
 import {Motorcycle} from "../domain/model/motorcycle";
+import {Brandcycle} from "../domain/model/brandcycle";
 
 @Injectable({
-  providedIn : 'root'
+  providedIn: 'root'
 })
 export class MotorcycleUcase implements MotorcycleUseCase {
   constructor(private readonly motorcycleRepository: MotorcycleRepository) {
@@ -14,18 +15,35 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.getMotorcycle()
   }
 
+  getMotorcycleById(id: number): Promise<any> {
+    return this.motorcycleRepository.getMotorcycleById(id);
+  }
+
   createMotorcycle(body: Motorcycle): Promise<any> {
     return this.motorcycleRepository.createMotorcycle(body);
   }
 
-  getMotorcycleById(id: number): Promise<any> {
-    return this.motorcycleRepository.getMotorcycleById(id);
-  }
   updateMotorcycle(id: number, body: any): Promise<any> {
     return this.motorcycleRepository.updateMotorcycle(id, body);
   }
 
-  getMotorcycleType() : Promise<any> {
+  getBrandMotorcycle(): Promise<any> {
+    return this.motorcycleRepository.getBrandMotorcycle()
+  }
+
+  getBrandMotorcycleById(id: number): Promise<any> {
+    return this.motorcycleRepository.getBrandMotorcycleById(id);
+  }
+
+  createBrandMotorcycle(body: Brandcycle): Promise<any> {
+    return this.motorcycleRepository.createBrandMotorcycle(body);
+  }
+
+  updateBrandMotorcycle(id: number, body: Brandcycle): Promise<any> {
+    return this.motorcycleRepository.updateBrandMotorcycle(id, body);
+  }
+
+  getMotorcycleType(): Promise<any> {
     return this.motorcycleRepository.getMotorcycleType()
   }
 
@@ -37,7 +55,7 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.createMotorcycleType(body);
   }
 
-  updateMotorcycleType(body: any, id : number): Promise<any> {
+  updateMotorcycleType(body: any, id: number): Promise<any> {
     return this.motorcycleRepository.updateMotorcycleType(body, id);
   }
 

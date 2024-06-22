@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {lastValueFrom} from "rxjs";
 import {Motorcycle} from "../../domain/model/motorcycle";
+import {Brandcycle} from "../../domain/model/brandcycle";
 
 @Injectable({
   providedIn: 'root'
@@ -21,29 +22,8 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
-  getMotorcycleType(): Promise<any> {
-    const url = `${this.url}/motorcycle_type/list`
-    return lastValueFrom(
-      this.httpMotorcycle.get(url)
-    )
-  }
-
-  getMotorcycleById(id:number): Promise<any> {
+  getMotorcycleById(id: number): Promise<any> {
     const url = `${this.url}/motorcycle/view/${id}`
-    return lastValueFrom(
-      this.httpMotorcycle.get(url)
-    )
-  }
-
-  updateMotorcycle(id: number, body: any): Promise<any> {
-    const url = `${this.url}/motorcycle/update/${id}`
-    return lastValueFrom(
-      this.httpMotorcycle.put(url,body)
-    )
-  }
-
-  getMotorcycleTypeById(id: number): Promise<any> {
-    const url = `${this.url}/motorcycle_type/view/${id}`
     return lastValueFrom(
       this.httpMotorcycle.get(url)
     )
@@ -53,6 +33,55 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     const url = `${this.url}/motorcycle/create`
     return lastValueFrom(
       this.httpMotorcycle.post(url, body)
+    )
+  }
+
+  updateMotorcycle(id: number, body: any): Promise<any> {
+    const url = `${this.url}/motorcycle/update/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.put(url, body)
+    )
+  }
+
+  getBrandMotorcycle(): Promise<any> {
+    const url = `${this.url}/brandcycle/list`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  getBrandMotorcycleById(id: number): Promise<any> {
+    const url = `${this.url}/brandcycle/view/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  createBrandMotorcycle(body: Brandcycle): Promise<any> {
+    const url = `${this.url}/brandcycle/create`
+    return lastValueFrom(
+      this.httpMotorcycle.post(url, body)
+    )
+  }
+
+  updateBrandMotorcycle(id: number, body: Brandcycle): Promise<any> {
+    const url = `${this.url}/brandcycle/update/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.put(url, body)
+    )
+  }
+
+  getMotorcycleType(): Promise<any> {
+    const url = `${this.url}/motorcycle_type/list`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  getMotorcycleTypeById(id: number): Promise<any> {
+    const url = `${this.url}/motorcycle_type/view/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
     )
   }
 

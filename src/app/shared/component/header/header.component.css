@@ -1,6 +1,7 @@
 .navbar-color {
   background-color: black;
-  height: 2.5cm;
+  height: auto;
+  width: auto;
 }
 
 .margin-search {
@@ -22,7 +23,7 @@
 }
 
 .font-title {
-  font-size: 30px;
+  font-size: 20px;
   color: aliceblue;
   font-weight: bold;
   font-family: C059;

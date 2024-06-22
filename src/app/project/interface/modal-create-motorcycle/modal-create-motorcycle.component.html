@@ -9,9 +9,13 @@
         <label>Marca: </label>
       </div>
       <div class="col-sm-12 col-md-5 mb-2">
-        <input class="form-control"
-               formControlName="brand"
-        placeholder="Ingrese marca">
+        <ng-select
+          formControlName="brand"
+          placeholder="Ingrese marca"
+        [items]="dataBrandMotorcycle"
+        bindLabel="brandcycle"
+        bindValue="id">
+        </ng-select>
       </div>
       <div class="col-sm-12 col-md-1 ">
         <label>Modelo: </label>
@@ -19,7 +23,7 @@
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
                formControlName="model"
-        placeholder="Ingrese modelo">
+               placeholder="Ingrese modelo">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>Color: </label>
@@ -27,7 +31,7 @@
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
                formControlName="color"
-        placeholder="Ingrese color">
+               placeholder="Ingrese color">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>Año: </label>
@@ -35,7 +39,7 @@
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
                formControlName="year"
-        placeholder="Ingrese año">
+               placeholder="Ingrese año">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>Precio: </label>
@@ -43,7 +47,7 @@
       <div class="col-sm-12 col-md-5 mb-2">
         <input class="form-control"
                formControlName="price"
-        placeholder="Ingrese precio">
+               placeholder="Ingrese precio">
       </div>
       <div class="col-sm-12 col-md-1">
         <label>T.de Moto </label>
@@ -54,7 +58,7 @@
           [items]="dataMotorcycleType"
           bindValue="id"
           bindLabel="motorcycleType"
-        placeholder="Seleccione tipo de moto">
+          placeholder="Seleccione tipo de moto">
         </ng-select>
       </div>
     </div>

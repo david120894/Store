@@ -5,6 +5,8 @@ import {CommonModule} from "@angular/common";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
 import {ToastrService} from "ngx-toastr";
+import {Brandcycle} from "../../domain/model/brandcycle";
+import {Motorcycle} from "../../domain/model/motorcycle";
 
 @Component({
   selector: 'app-modal-create-motorcycle',
@@ -20,10 +22,10 @@ import {ToastrService} from "ngx-toastr";
 export class ModalCreateMotorcycleComponent implements OnInit{
 
   @Input() id : number = 0
-  dataMotorcycle: any
   dataMotorcycleType: any
   dataEditMotorcycle: any
   isEditMotorcycle = false;
+  dataBrandMotorcycle: Brandcycle[] = []
 
   formMotorcycle: FormGroup = new FormGroup({
     brand:  new FormControl(null),
@@ -45,6 +47,7 @@ export class ModalCreateMotorcycleComponent implements OnInit{
 
   async ngOnInit() {
     await this.getMotorcycleType()
+    await this.getBrandMotorcycle()
     if(this.id) {
       await this.getMotorcycleById()
     }
@@ -52,11 +55,13 @@ export class ModalCreateMotorcycleComponent implements OnInit{
 
   async createMotorcycle() {
     const params = {
-      brand: this.form['brand'].value,
       model: this.form['model'].value,
       year: this.form['year'].value,
       color: this.form['color'].value,
       price: this.form['price'].value,
+      brandcycle: {
+        id: this.form['brand'].value
+      },
       motorcycleType: {
         id: this.form['idTypeMotorcycle'].value
       }
@@ -68,34 +73,36 @@ export class ModalCreateMotorcycleComponent implements OnInit{
   async getMotorcycleType() {
     this.dataMotorcycleType = await this.motorcycleUseCase.getMotorcycleType()
   }
-
+  async getBrandMotorcycle() {
+    this.dataBrandMotorcycle = await this.motorcycleUseCase.getBrandMotorcycle()
+  }
   async getMotorcycleById() {
     this.isEditMotorcycle = true;
     this.dataEditMotorcycle = await this.motorcycleUseCase.getMotorcycleById(this.id)
     this.formMotorcycle.patchValue({
-      brand: this.dataEditMotorcycle.brand,
+      brand: this.dataEditMotorcycle.brandcycle.id,
       model: this.dataEditMotorcycle.model,
       year: this.dataEditMotorcycle.year,
       color: this.dataEditMotorcycle.color,
       price: this.dataEditMotorcycle.price,
       idTypeMotorcycle: this.dataEditMotorcycle.motorcycleType.id
     })
-    console.log(this.dataEditMotorcycle)
   }
 
   async updateMotorcycle() {
-    const params = {
-      brand: this.form['brand'].value,
+    const params :Motorcycle = {
       model: this.form['model'].value,
       year: this.form['year'].value,
       color: this.form['color'].value,
       price: this.form['price'].value,
+      brandcycle: {
+        id: this.form['brand'].value
+      },
       motorcycleType: {
         id: this.form['idTypeMotorcycle'].value
       }
     }
     await this.motorcycleUseCase.updateMotorcycle(this.id, params)
-    console.log(params)
     this.activeModal.close('success')
   }
 }

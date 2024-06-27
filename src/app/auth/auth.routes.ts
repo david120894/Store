@@ -5,7 +5,7 @@ import {loggedGuard} from "../core/guards/logged.guard";
 
 export const AUTH_ROUTES: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
   },
 

@@ -1,15 +1,23 @@
+import {Motorcycle} from "./model/motorcycle";
+import {Brandcycle} from "./model/brandcycle";
 
 export abstract class MotorcycleUseCase {
 
   abstract getMotorcycle():Promise<any>
 
-  abstract createMotorcycle(body: any):Promise<any>
+  abstract createMotorcycle(body: Motorcycle):Promise<any>
 
   abstract updateMotorcycle(id: number, body: any): Promise<any>
 
   abstract getMotorcycleById(id:number): Promise<any>
-  //
-  // abstract deleteMotorcycle(body: any): Promise<any>
+
+  abstract getBrandMotorcycle(): Promise<any>
+
+  abstract getBrandMotorcycleById(id: number): Promise<any>
+
+  abstract createBrandMotorcycle(body: Brandcycle): Promise<any>
+
+  abstract updateBrandMotorcycle(id: number, body: Brandcycle): Promise<any>
 
   abstract getMotorcycleType() : Promise<any>
 

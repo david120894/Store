@@ -4,12 +4,15 @@ import {NgbModal, NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 import {ModalCreateMotorcycleComponent} from "../modal-create-motorcycle/modal-create-motorcycle.component";
 import {ModalCreteMotorcycletypeComponent} from "../modal-crete-motorcycletype/modal-crete-motorcycletype.component";
 import {ToastrService} from "ngx-toastr";
+import {BrandCycleComponent} from "../brand-cycle/brand-cycle.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-motorcycle',
   standalone: true,
   imports: [
-    NgbTooltip
+    NgbTooltip,
+    RouterLink
   ],
   templateUrl: './motorcycle.component.html',
   styleUrl: './motorcycle.component.css'
@@ -51,6 +54,10 @@ export class MotorcycleComponent implements OnInit  {
   openModalCreateMotorcycleType() {
     const modalRef = this.ngbModal.open(ModalCreteMotorcycletypeComponent, { size: 'md'})
   }
+
+  openBrandCycle() {
+    const modalRef = this.ngbModal.open(BrandCycleComponent, { size: 'md'})
+  }
   async editMotorcycle(id: number) {
     const modalRef = this.ngbModal.open(ModalCreateMotorcycleComponent, { size:'lg'})
     modalRef.componentInstance.id = id
@@ -61,5 +68,7 @@ export class MotorcycleComponent implements OnInit  {
       }
     })
   }
+
+
 
 }

@@ -1,0 +1,73 @@
+<div class="modal-header">
+  <h5>
+    Agregar Marca de Motos
+  </h5>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modalActive.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <div [formGroup]="formBrandCycle">
+    <div class="d-flex">
+      <label class="col-sm-12 col-md-2">
+        Marca:
+      </label>
+      <div class="col-sm-12 col-md-10">
+        <input class="form-control"
+               formControlName="brand">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div>
+    <table class="table table-hover table-bordered">
+      <thead class="color-thead">
+      <tr>
+        <th>
+          Marca
+        </th>
+        <th>
+          Acciones
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (brand of brandsMotorcycle; track brand) {
+          <tr>
+            <td>
+              {{ brand.brandcycle }}
+            </td>
+            <td>
+              <div class="btn-group btn-align d-flex justify-content-center">
+                <button class="btn btn-outline-danger"
+                        ngbTooltip="Eliminar">
+                  <i class="bi bi-trash3"></i>
+                </button>
+                <button class="btn btn-outline-success"
+                        ngbTooltip="Editar"
+                        (click)="editBrandMotorcycle(brand.id)">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-danger" (click)="modalActive.close('Close click')">
+    Cancelar
+  </button>
+  @if (updateButton) {
+    <button type="button" class="btn btn-outline-warning" (click)="updateBrandMotorcycle()">
+      <i class="bi bi-floppy m-1"></i>
+      Actualizar
+    </button>
+  } @else {
+    <button type="button" class="btn btn-outline-primary" (click)="createBrandMotorcycle()">
+      <i class="bi bi-floppy m-1"></i>
+      Guardar
+    </button>
+  }
+
+</div>

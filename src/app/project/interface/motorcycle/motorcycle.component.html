@@ -1,15 +1,23 @@
-
-<div class="container mt-2">
+<div class="container-xxl mt-2">
   <div>
-    <button class="btn btn-success mb-1"
-    (click)="openModalCreateMotorcycle()">
+    <button class="btn btn-success"
+            (click)="openModalCreateMotorcycle()">
       <i class="bi bi-plus-circle"></i>
       Motos
     </button>
     <button class="btn btn-success mb-1 m-1"
-    (click)="openModalCreateMotorcycleType()">
+            (click)="openModalCreateMotorcycleType()"
+            ngbTooltip="Tipo de motos"
+            placement="bottom">
       <i class="bi bi-plus-circle"></i>
       T.Motos
+    </button>
+    <button class="btn btn-success"
+            (click)="openBrandCycle()"
+            ngbTooltip="Marca de motos"
+            placement="bottom">
+      <i class="bi bi-plus-circle"></i>
+      M.Motos
     </button>
     <table class="table table-style table-hover table-bordered">
       <thead>
@@ -35,50 +43,56 @@
         <th>
           Precio
         </th>
-        <th>
+        <th class="width-action">
           Acciones
         </th>
       </tr>
       </thead>
-      <tbody class="overflow-motorcycle">
-        @for (motorcycle of dataMotorcycle; track motorcycle) {
-          <tr>
-            <td>
-              {{ motorcycle.brand }}
-            </td>
-            <td>
-              {{ motorcycle.motorcycleType.motorcycleType }}
-            </td>
-            <td>
-              {{ motorcycle.model }}
-            </td>
-            <td>
-              200
-            </td>
-            <td>
-              {{ motorcycle.color }}
-            </td>
-            <td>
-              {{ motorcycle.year }}
-            </td>
-            <td>
-              {{ motorcycle.price }}
-            </td>
-            <td colspan="d-flex justify-content-center">
-              <div class="btn-group btn-align">
-                <button class="btn btn-outline-danger"
-                ngbTooltip="Eliminar">
-                  <i class="bi bi-trash3"></i>
-                </button>
-                <button class="btn btn-outline-success"
-                ngbTooltip="Editar"
-                (click)="editMotorcycle(motorcycle.id)">
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        }
+        <tbody class="overflow-motorcycle">
+          @for (motorcycle of dataMotorcycle; track motorcycle) {
+            <tr class="">
+              <td>
+                {{ motorcycle.brandcycle?.brandcycle }}
+              </td>
+              <td>
+                {{ motorcycle.motorcycleType?.motorcycleType }}
+              </td>
+              <td>
+                {{ motorcycle.model }}
+              </td>
+              <td>
+                200
+              </td>
+              <td>
+                {{ motorcycle.color }}
+              </td>
+              <td>
+                {{ motorcycle.year }}
+              </td>
+              <td>
+                {{ motorcycle.price }}
+              </td>
+              <td colspan="d-flex justify-content-center width-action">
+                <div class="btn-group btn-align">
+                  <button class="btn btn-outline-danger"
+                          ngbTooltip="Eliminar">
+                    <i class="bi bi-trash3"></i>
+                  </button>
+                  <button class="btn btn-outline-success"
+                          ngbTooltip="Editar"
+                          (click)="editMotorcycle(motorcycle.id)">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
     </table>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-outline-danger"
+              routerLink="/">
+        Salir
+      </button>
+    </div>
   </div>
 </div>

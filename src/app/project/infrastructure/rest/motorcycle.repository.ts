@@ -106,10 +106,10 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
-  getMediaFile(fileName: string): Promise<any> {
+  getMediaFile(fileName: string): Promise<Blob> {
     const url = `${this.url}/motorcycle/image/${fileName}`
     return lastValueFrom(
-      this.httpMotorcycle.get(url)
+      this.httpMotorcycle.get(url, {responseType: 'blob'})
     )
   }
 }

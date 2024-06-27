@@ -30,6 +30,6 @@ export abstract class MotorcycleRepository {
 
   abstract deleteMotorcycleType(id: number): Promise<any>
 
-  abstract getMediaFile(fileName:string): Promise<any>
+  abstract getMediaFile(fileName:string): Promise<Blob>
 
 }

@@ -29,5 +29,5 @@ export abstract class MotorcycleUseCase {
 
   abstract deleteMotorcycleType(id: number): Promise<any>
 
-  abstract getMediaFile(fileName:string): Promise<any>
+  abstract getMediaFile(fileName:string): Promise<Blob>
 }

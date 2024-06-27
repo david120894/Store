@@ -3,6 +3,7 @@ import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ModalCreateMotorcycleComponent} from "../modal-create-motorcycle/modal-create-motorcycle.component";
 import {ModalCreteMotorcycletypeComponent} from "../modal-crete-motorcycletype/modal-crete-motorcycletype.component";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-article',
@@ -12,15 +13,19 @@ import {ModalCreteMotorcycletypeComponent} from "../modal-crete-motorcycletype/m
   styleUrl: './article.component.css'
 })
 export class ArticleComponent implements OnInit {
+  imageUrlMap: { [key: string]: SafeUrl } = {};
 
   dataMotorcycle: any
   @Input() refreshView = ''
+
   constructor(private readonly motorcycleUseCase: MotorcycleUseCase,
-              public ngbModal: NgbModal) {
+              public ngbModal: NgbModal,
+              private sanitizer: DomSanitizer) {
   }
 
   async ngOnInit() {
     await this.getMotorcycle()
+    await this.loadAllImages();
   }
 
   async getMotorcycle() {
@@ -29,8 +34,25 @@ export class ArticleComponent implements OnInit {
   }
 
   async getImage(fileName: string) {
-    const url = `http://localhost:8080/api/v1/motorcycle/image/${fileName}`
-    console.log(url)
-    return url
+    if (this.imageUrlMap[fileName]) {
+      return this.imageUrlMap[fileName];
+    }
+
+    try {
+      const blob = await this.motorcycleUseCase.getMediaFile(fileName);
+      const url = URL.createObjectURL(blob);
+      const safeUrl = this.sanitizer.bypassSecurityTrustUrl(url);
+      this.imageUrlMap[fileName] = safeUrl;
+      console.log(safeUrl);
+      return safeUrl;
+
+    } catch (error) {
+      console.error('Error loading media file', error);
+      return '';
+    }
+  }
+  async loadAllImages() {
+    const imagePromises = this.dataMotorcycle.map((motorCycle: any) => this.getImage(motorCycle.image));
+    await Promise.all(imagePromises);
   }
 }

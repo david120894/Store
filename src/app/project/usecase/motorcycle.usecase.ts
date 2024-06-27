@@ -63,7 +63,7 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.deleteMotorcycleType(id);
   }
 
-  getMediaFile(fileName: string): Promise<any> {
+  getMediaFile(fileName: string): Promise<Blob> {
     return this.motorcycleRepository.getMediaFile(fileName)
   }
 }

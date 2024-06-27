@@ -20,4 +20,6 @@ export abstract class MotorcycleUseCase {
   abstract updateMotorcycleType(id : number,body: any): Promise<any>
 
   abstract deleteMotorcycleType(id: number): Promise<any>
+
+  abstract getMediaFile(fileName:string): Promise<any>
 }

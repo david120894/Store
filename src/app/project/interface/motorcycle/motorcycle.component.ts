@@ -16,6 +16,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class MotorcycleComponent implements OnInit  {
 
+  urlImage = ""
   dataMotorcycle: any
   dataEditMotorcycle: any
 
@@ -30,6 +31,10 @@ export class MotorcycleComponent implements OnInit  {
   async getMotorcycle() {
     const motorcycle = await this.motorcycleUseCase.getMotorcycle()
     this.dataMotorcycle = motorcycle
+    // if (this.dataEditMotorcycle) {
+    //   this.urlImage = await this.motorcycleUseCase.getMediaFile(this.dataEditMotorcycle[8].image)
+    // }
+    // console.log('image',this.urlImage)
     console.log(motorcycle)
   }
 

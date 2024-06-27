@@ -75,4 +75,11 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
       this.httpMotorcycle.delete(url)
     )
   }
+
+  getMediaFile(fileName: string): Promise<any> {
+    const url = `${this.url}/motorcycle/image/${fileName}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
 }

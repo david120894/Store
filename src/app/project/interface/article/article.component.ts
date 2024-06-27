@@ -28,4 +28,9 @@ export class ArticleComponent implements OnInit {
 
   }
 
+  async getImage(fileName: string) {
+    const url = `http://localhost:8080/api/v1/motorcycle/image/${fileName}`
+    console.log(url)
+    return url
+  }
 }

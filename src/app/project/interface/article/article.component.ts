@@ -14,6 +14,7 @@ interface Motorcycle {
   image: string;
   imageUrl?: SafeUrl;
 }
+
 @Component({
   selector: 'app-article',
   standalone: true,
@@ -37,33 +38,10 @@ export class ArticleComponent implements OnInit {
   }
 
   async getMotorcycle() {
-    try {
-      this.dataMotorcycle = await this.motorcycleUseCase.getMotorcycle();
-      await Promise.all(this.dataMotorcycle.map(async (motorcycle) => {
-        const blob = await this.motorcycleUseCase.getMediaFile(motorcycle.image);
-        motorcycle.imageUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
-      }));
-    } catch (error) {
-      console.error('Error loading motorcycles:', error);
-    }
-
-    console.log(this.dataMotorcycle);
+    this.dataMotorcycle = await this.motorcycleUseCase.getMotorcycle();
   }
 
-  async getImage(fileName: string) {
-    try {
-      const blob = await this.motorcycleUseCase.getMediaFile(fileName);
-      this.imageUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(blob));
-      console.log(this.imageUrl);
-      return this.imageUrl
-
-    } catch (error) {
-      console.error('Error loading image:', error);
-    }
-    return '';
-  }
-  async loadAllImages() {
-    const imagePromises = this.dataMotorcycle.map((motorCycle: any) => this.getImage(motorCycle.image));
-    await Promise.all(imagePromises);
+  getImage(fileName: string) {
+    return this.motorcycleUseCase.getMediaFile(fileName)
   }
 }

@@ -22,10 +22,11 @@ import {Motorcycle} from "../../domain/model/motorcycle";
 export class ModalCreateMotorcycleComponent implements OnInit{
 
   @Input() id : number = 0
-  dataMotorcycleType: any
-  dataEditMotorcycle: any
+  dataMotorcycleType: Motorcycle[] = []
+  dataEditMotorcycle: Motorcycle = {}
   isEditMotorcycle = false;
   dataBrandMotorcycle: Brandcycle[] = []
+  selectedFile: File | null = null;
 
   formMotorcycle: FormGroup = new FormGroup({
     brand:  new FormControl(null),
@@ -52,22 +53,36 @@ export class ModalCreateMotorcycleComponent implements OnInit{
       await this.getMotorcycleById()
     }
   }
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
 
   async createMotorcycle() {
-    const params = {
+
+    const formData = new FormData();
+    const motorcycleData: Motorcycle = {
       model: this.form['model'].value,
       year: this.form['year'].value,
       color: this.form['color'].value,
       price: this.form['price'].value,
       brandcycle: {
-        id: this.form['brand'].value
-      },
-      motorcycleType: {
-        id: this.form['idTypeMotorcycle'].value
-      }
+        id: this.form['brand'].value},
+      motorcycleType:
+        {id : this.form['idTypeMotorcycle'].value}
     }
-    await this.motorcycleUseCase.createMotorcycle(params)
-    this.activeModal.close('success')
+
+    formData.append('motorcycle', JSON.stringify(motorcycleData))
+
+    if (this.selectedFile) {
+      formData.append('file', this.selectedFile, this.selectedFile.name)
+    }
+
+    try {
+      await this.motorcycleUseCase.createMotorcycle(formData)
+      this.activeModal.close('success')
+    } catch (error) {
+      console.error('Error creating motorcycle:', error)
+    }
   }
 
   async getMotorcycleType() {
@@ -80,12 +95,12 @@ export class ModalCreateMotorcycleComponent implements OnInit{
     this.isEditMotorcycle = true;
     this.dataEditMotorcycle = await this.motorcycleUseCase.getMotorcycleById(this.id)
     this.formMotorcycle.patchValue({
-      brand: this.dataEditMotorcycle.brandcycle.id,
+      brand: this.dataEditMotorcycle.brandcycle?.id,
       model: this.dataEditMotorcycle.model,
       year: this.dataEditMotorcycle.year,
       color: this.dataEditMotorcycle.color,
       price: this.dataEditMotorcycle.price,
-      idTypeMotorcycle: this.dataEditMotorcycle.motorcycleType.id
+      idTypeMotorcycle: this.dataEditMotorcycle.motorcycleType?.id
     })
   }
 

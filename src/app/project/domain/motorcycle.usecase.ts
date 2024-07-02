@@ -5,7 +5,7 @@ export abstract class MotorcycleUseCase {
 
   abstract getMotorcycle():Promise<any>
 
-  abstract createMotorcycle(body: Motorcycle):Promise<any>
+  abstract createMotorcycle(body: FormData):Promise<any>
 
   abstract updateMotorcycle(id: number, body: any): Promise<any>
 
@@ -29,5 +29,5 @@ export abstract class MotorcycleUseCase {
 
   abstract deleteMotorcycleType(id: number): Promise<any>
 
-  abstract getMediaFile(fileName:string): Promise<Blob>
+  abstract getMediaFile(fileName:string): string
 }

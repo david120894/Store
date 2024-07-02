@@ -1,7 +1,7 @@
 import {MotorcycleRepository} from "../../domain/motorcycle.repository";
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {lastValueFrom} from "rxjs";
+import {lastValueFrom, Observable} from "rxjs";
 import {Motorcycle} from "../../domain/model/motorcycle";
 import {Brandcycle} from "../../domain/model/brandcycle";
 
@@ -29,7 +29,7 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
-  createMotorcycle(body: Motorcycle): Promise<any> {
+  createMotorcycle(body: FormData): Promise<any> {
     const url = `${this.url}/motorcycle/create`
     return lastValueFrom(
       this.httpMotorcycle.post(url, body)
@@ -106,10 +106,7 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
     )
   }
 
-  getMediaFile(fileName: string): Promise<Blob> {
-    const url = `${this.url}/motorcycle/image/${fileName}`
-    return lastValueFrom(
-      this.httpMotorcycle.get(url, {responseType: 'blob'})
-    )
+  getMediaFile(fileName: string): string {
+    return `${this.url}/motorcycle/image/${fileName}`
   }
 }

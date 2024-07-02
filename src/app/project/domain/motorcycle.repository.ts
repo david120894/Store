@@ -1,11 +1,12 @@
 import {Motorcycle} from "./model/motorcycle";
 import {Brandcycle} from "./model/brandcycle";
+import {Observable} from "rxjs";
 
 export abstract class MotorcycleRepository {
 
   abstract getMotorcycle(): Promise<Motorcycle>
 
-  abstract createMotorcycle(body: Motorcycle): Promise<any>
+  abstract createMotorcycle(body: FormData): Promise<any>
 
   abstract updateMotorcycle(id: number, body: any): Promise<any>
 
@@ -30,6 +31,6 @@ export abstract class MotorcycleRepository {
 
   abstract deleteMotorcycleType(id: number): Promise<any>
 
-  abstract getMediaFile(fileName:string): Promise<Blob>
+  abstract getMediaFile(fileName: string): string
 
 }

@@ -5,12 +5,14 @@
       <div class="col-sm-12 col-md-4">
         <div class="card mb-3">
           <div class="card-body">
-            <div class="" >
-              <img class="w-100" [src]="motorCycle.imageUrl" alt="">
+            <div class="d-flex justify-content-center" >
+              <img class="" [src]="getImage(motorCycle.image)" alt="">
             </div>
-            <strong>Brand:</strong> {{ motorCycle.brand }}
+            <strong>Marca:</strong> {{ motorCycle.brandcycle?.brandcycle }}
             <br>
-            <strong>Model:</strong> {{ motorCycle.model }}
+            <strong>Tipo de Moto:</strong> {{ motorCycle.motorcycleType?.motorcycleType }}
+            <br>
+            <strong>Modelo:</strong> {{ motorCycle.model }}
             <br>
             <strong>Año:</strong> {{ motorCycle.year }}
             <br>

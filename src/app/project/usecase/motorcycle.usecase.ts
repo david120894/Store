@@ -19,7 +19,7 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.getMotorcycleById(id);
   }
 
-  createMotorcycle(body: Motorcycle): Promise<any> {
+  createMotorcycle(body: FormData): Promise<any> {
     return this.motorcycleRepository.createMotorcycle(body);
   }
 
@@ -63,7 +63,7 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.deleteMotorcycleType(id);
   }
 
-  getMediaFile(fileName: string): Promise<Blob> {
+  getMediaFile(fileName: string): string {
     return this.motorcycleRepository.getMediaFile(fileName)
   }
 }

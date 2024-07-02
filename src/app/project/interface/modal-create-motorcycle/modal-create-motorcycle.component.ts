@@ -22,8 +22,8 @@ import {Motorcycle} from "../../domain/model/motorcycle";
 export class ModalCreateMotorcycleComponent implements OnInit{
 
   @Input() id : number = 0
-  dataMotorcycleType: any
-  dataEditMotorcycle: any
+  dataMotorcycleType: Motorcycle[] = []
+  dataEditMotorcycle: Motorcycle = {}
   isEditMotorcycle = false;
   dataBrandMotorcycle: Brandcycle[] = []
   selectedFile: File | null = null;
@@ -71,17 +71,17 @@ export class ModalCreateMotorcycleComponent implements OnInit{
         {id : this.form['idTypeMotorcycle'].value}
     }
 
-    formData.append('motorcycle', JSON.stringify(motorcycleData));
+    formData.append('motorcycle', JSON.stringify(motorcycleData))
 
     if (this.selectedFile) {
-      formData.append('file', this.selectedFile, this.selectedFile.name);
+      formData.append('file', this.selectedFile, this.selectedFile.name)
     }
 
     try {
-      await this.motorcycleUseCase.createMotorcycle(formData);
-      this.activeModal.close('success');
+      await this.motorcycleUseCase.createMotorcycle(formData)
+      this.activeModal.close('success')
     } catch (error) {
-      console.error('Error creating motorcycle:', error);
+      console.error('Error creating motorcycle:', error)
     }
   }
 

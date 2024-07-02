@@ -1,19 +1,7 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {ModalCreateMotorcycleComponent} from "../modal-create-motorcycle/modal-create-motorcycle.component";
-import {ModalCreteMotorcycletypeComponent} from "../modal-crete-motorcycletype/modal-crete-motorcycletype.component";
-import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
-
-interface Motorcycle {
-  brand: string;
-  model: string;
-  year: number;
-  color: string;
-  price: number;
-  image: string;
-  imageUrl?: SafeUrl;
-}
+import {SafeUrl} from "@angular/platform-browser";
+import {Motorcycle} from "../../domain/model/motorcycle";
 
 @Component({
   selector: 'app-article',
@@ -23,25 +11,24 @@ interface Motorcycle {
   styleUrl: './article.component.css'
 })
 export class ArticleComponent implements OnInit {
-  imageUrl: SafeUrl = '';
   dataMotorcycle: Motorcycle [] = []
   @Input() refreshView = ''
 
-  constructor(private readonly motorcycleUseCase: MotorcycleUseCase,
-              public ngbModal: NgbModal,
-              private sanitizer: DomSanitizer) {
+  constructor(private readonly motorcycleUseCase: MotorcycleUseCase) {
   }
 
   async ngOnInit() {
     await this.getMotorcycle()
-    // await this.loadAllImages();
   }
 
   async getMotorcycle() {
     this.dataMotorcycle = await this.motorcycleUseCase.getMotorcycle();
   }
 
-  getImage(fileName: string) {
-    return this.motorcycleUseCase.getMediaFile(fileName)
+  getImage(fileName?: string) {
+    if (fileName) {
+      return this.motorcycleUseCase.getMediaFile(fileName)
+    }
+    return null
   }
 }

@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   }
 
   async getProductMotorcycle() {
-    this.listProducts = await this.motorcycleUseCase.getMotorcycle();
+    this.listProducts = await this.motorcycleUseCase.getProductMotorcycle();
   }
 
   getImage(fileName?: string) {

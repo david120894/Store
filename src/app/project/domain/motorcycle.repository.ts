@@ -10,7 +10,7 @@ export abstract class MotorcycleRepository {
 
   abstract updateMotorcycle(id: number, body: any): Promise<any>
 
-  abstract getMotorcycleById(id:number): Promise<any>
+  abstract getMotorcycleById(id: number): Promise<any>
 
   abstract getBrandMotorcycle(): Promise<any>
 
@@ -32,5 +32,15 @@ export abstract class MotorcycleRepository {
   abstract deleteMotorcycleType(id: number): Promise<any>
 
   abstract getMediaFile(fileName: string): string
+
+  abstract getProductMotorcycle(): Promise<any>
+
+  abstract getProductMotorcycleById(id: number): Promise<any>
+
+  abstract createProductMotorcycle(body: FormData): Promise<any>
+
+  abstract getFileProduct(fileName: string): string
+
+  abstract getProductMotorcycleType(): Promise<any>
 
 }

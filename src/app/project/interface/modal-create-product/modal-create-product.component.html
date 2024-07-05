@@ -1,0 +1,60 @@
+<div class="modal-header">
+  <h3 class="modal-title">
+    Crear Producto
+  </h3>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <div class="row" [formGroup]="formProduct">
+      <div class="col-sm-12 col-md-1 ">
+        <label>Marca: </label>
+      </div>
+      <div class="col-sm-12 col-md-3 mb-2">
+        <input class="form-control" formControlName="name" placeholder="Ingrese marca">
+      </div>
+      <div class="col-sm-12 col-md-2">
+        <label>Descripcion: </label>
+      </div>
+      <div class="col-sm-12 col-md-6 mb-2">
+        <input class="form-control" formControlName="description" placeholder="Descripcion">
+      </div>
+      <div class="col-sm-12 col-md-1 ">
+        <label>Precio: </label>
+      </div>
+      <div class="col-sm-12 col-md-3 mb-2">
+        <input class="form-control" formControlName="price" placeholder="Ingrese precio">
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label>Cantidad: </label>
+      </div>
+      <div class="col-sm-12 col-md-3 mb-2">
+        <input class="form-control" formControlName="stock" placeholder="Ingrese cantidad">
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label>T.Producto: </label>
+      </div>
+      <div class="col-sm-12 col-md-3 mb-2">
+        <ng-select
+          formControlName="productType"
+          [items]="dataProductType"
+          bindValue="id"
+          bindLabel="typeName"
+          placeholder="Seleccione tipo de producto">
+        </ng-select>
+      </div>
+      <div class="col-sm-12 col-md-1">
+        <label> Imagen: </label>
+      </div>
+      <div class="col-sm-12 col-md-5 mb-2">
+        <input type="file" (change)="onFileSelected($event)" class="form-control">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-danger" (click)="closeModal()">Cancelar</button>
+  <button type="button" class="btn btn-outline-primary" (click)="createProduct()">
+    <i class="bi bi-floppy"></i>
+    Guardar
+  </button>
+</div>

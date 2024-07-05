@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    @for (product of listProducts; track product) {
+      <div class="col-sm-12 col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-center" >
+              <img class="" [src]="getImage(product.image)" alt="">
+            </div>
+            <strong>Marca:</strong> {{ product.name }}
+            <br>
+            <strong>Tipo de Moto:</strong> {{ product.description }}
+            <br>
+            <strong>Modelo:</strong> {{ product.price }}
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -109,4 +109,36 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
   getMediaFile(fileName: string): string {
     return `${this.url}/motorcycle/image/${fileName}`
   }
+
+  getProductMotorcycle(): Promise<any> {
+    const url = `${this.url}/product/list`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  getProductMotorcycleById(id: number): Promise<any> {
+    const url = `${this.url}/product/view/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  createProductMotorcycle(body: FormData): Promise<any> {
+    const url = `${this.url}/product/create`
+    return lastValueFrom(
+      this.httpMotorcycle.post(url, body)
+    )
+  }
+
+  getFileProduct(fileName: string): string {
+    return `${this.url}/product/image/${fileName}`
+  }
+
+  getProductMotorcycleType(): Promise<any> {
+    const url = `${this.url}/product_type/list`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
 }

@@ -66,4 +66,24 @@ export class MotorcycleUcase implements MotorcycleUseCase {
   getMediaFile(fileName: string): string {
     return this.motorcycleRepository.getMediaFile(fileName)
   }
+
+  getProductMotorcycle(): Promise<any> {
+    return this.motorcycleRepository.getProductMotorcycle()
+  }
+
+  createProductMotorcycle(body: FormData): Promise<any> {
+    return this.motorcycleRepository.createProductMotorcycle(body)
+  }
+
+ getProductMotorcycleById(id: number): Promise<any> {
+    return this.motorcycleRepository.getProductMotorcycleById(id);
+  }
+
+  getFileProduct(fileName: string): string {
+    return this.motorcycleRepository.getFileProduct(fileName)
+  }
+
+  getProductMotorcycleType(): Promise<any> {
+    return this.motorcycleRepository.getProductMotorcycleType()
+  }
 }

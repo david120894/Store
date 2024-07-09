@@ -39,9 +39,9 @@
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <button class="btn btn-circle btn-outline-info"
-              [routerLink]="['/view-products']">
+                    [routerLink]="['/view-products']"
+                    [queryParams]="{ productType: 'Casco' }">
               <img class="img-motor-icon rounded-circle" src="assets/ich.png" alt="">
-              <div class="font-title-icon">ICH</div>
             </button>
           </div>
         </div>
@@ -54,9 +54,10 @@
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <button class="btn btn-circle btn-outline-info">
+            <button class="btn btn-circle btn-outline-info"
+                    [routerLink]="['/view-products']"
+                    [queryParams]="{ productType: 'Guantes' }">
               <img class="img-motor-icon rounded-circle" src="assets/guante.png" alt="">
-              <div class="font-title-icon">Guantes</div>
             </button>
           </div>
         </div>
@@ -72,7 +73,6 @@
           <div class="accordion-body">
             <button class="btn btn-circle btn-outline-info">
               <img class="img-motor-icon rounded-circle" src="assets/luces.avif" alt="">
-              <div class="font-title-icon">Luces</div>
             </button>
           </div>
         </div>

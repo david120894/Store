@@ -49,4 +49,6 @@ export abstract class MotorcycleRepository {
 
   abstract updateProductMotorcycleType(body: any, id: number): Promise<any>
 
+  abstract getProductMotorcycleByType(id : number): Promise<any>
+
 }

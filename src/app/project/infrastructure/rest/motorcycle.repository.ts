@@ -162,4 +162,11 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
       this.httpMotorcycle.put(url, body)
     )
   }
+
+  getProductMotorcycleByType(id: number): Promise<any> {
+    const url = `${this.url}/product/byType/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
 }

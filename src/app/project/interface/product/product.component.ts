@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-product',
@@ -10,15 +12,38 @@ import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
 })
 export class ProductComponent implements OnInit {
 
+  productType: string = ''
   listProducts: any[] = []
-  constructor(private readonly motorcycleUseCase: MotorcycleUseCase) { }
+  queryParamsSubscription: Subscription | null = null
 
-  async ngOnInit(){
-    await this.getProductMotorcycle()
+  constructor(private readonly motorcycleUseCase: MotorcycleUseCase,
+              private readonly route: ActivatedRoute) {
   }
 
-  async getProductMotorcycle() {
-    this.listProducts = await this.motorcycleUseCase.getProductMotorcycle();
+  async ngOnInit() {
+    await this.getParams()
+  }
+
+  async getParams() {
+    this.route.queryParams.subscribe(params => {
+      this.productType = params['productType']
+      this.getProductMotorcycleByProductType()
+    });
+  }
+  async getProductMotorcycle(id: number) {
+    this.listProducts = await this.motorcycleUseCase.getProductMotorcycleByType(id);
+  }
+
+  async getProductMotorcycleByProductType() {
+    const productType = await this.motorcycleUseCase.getProductMotorcycleType()
+    productType.forEach((p: any) => {
+      if (p.typeName === this.productType) {
+        this.getProductMotorcycle(p.id)
+        this.listProducts = []
+
+      }
+    })
+
   }
 
   getImage(fileName?: string) {

@@ -75,7 +75,7 @@ export class MotorcycleUcase implements MotorcycleUseCase {
     return this.motorcycleRepository.createProductMotorcycle(body)
   }
 
- getProductMotorcycleById(id: number): Promise<any> {
+  getProductMotorcycleById(id: number): Promise<any> {
     return this.motorcycleRepository.getProductMotorcycleById(id);
   }
 
@@ -86,4 +86,18 @@ export class MotorcycleUcase implements MotorcycleUseCase {
   getProductMotorcycleType(): Promise<any> {
     return this.motorcycleRepository.getProductMotorcycleType()
   }
+
+  getProductMotorcycleTypeId(id: number): Promise<any> {
+    return this.motorcycleRepository.getProductMotorcycleTypeId(id)
+  }
+
+  createProductMotorcycleType(body: any): Promise<any> {
+    return this.motorcycleRepository.createProductMotorcycleType(body)
+  }
+
+  updateProductMotorcycleType(body: any, id: number): Promise<any> {
+    return this.motorcycleRepository.updateProductMotorcycleType(body, id)
+  }
+
+
 }

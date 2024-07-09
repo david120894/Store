@@ -22,3 +22,4 @@ export const MOTORCYCLE_ROUTES: Routes = [
     component: ProductComponent
   }
 ]
+

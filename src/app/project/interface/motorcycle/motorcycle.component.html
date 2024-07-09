@@ -22,10 +22,10 @@
       </button>
     </div>
 
-    <table class="table table-style table-hover table-bordered">
+    <table class="table table-hover table-bordered">
       <thead>
       <tr class="color-thead">
-        <th>
+        <th class="">
           Marca
         </th>
         <th>
@@ -46,7 +46,7 @@
         <th>
           Precio
         </th>
-        <th class="width-action">
+        <th class="text-center">
           Acciones
         </th>
       </tr>
@@ -75,8 +75,8 @@
               <td>
                 {{ motorcycle.price }}
               </td>
-              <td colspan="d-flex justify-content-center width-action">
-                <div class="btn-group btn-align">
+              <td class="d-flex justify-content-center">
+                <div class="btn-group">
                   <button class="btn btn-outline-danger"
                           ngbTooltip="Eliminar">
                     <i class="bi bi-trash3"></i>

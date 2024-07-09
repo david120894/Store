@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterModule} from "@angular/router";
+import {Router, RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -10,4 +10,8 @@ import {RouterModule} from "@angular/router";
 })
 export class NavbarComponent {
 
+  constructor(private router: Router) { }
+  navigateToProducts(name:string){
+    this.router.navigate(['/view-products'],{queryParams:{productType: name}});
+  }
 }

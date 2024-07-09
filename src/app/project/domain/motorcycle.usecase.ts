@@ -47,4 +47,6 @@ export abstract class MotorcycleUseCase {
 
   abstract updateProductMotorcycleType(body: any, id: number): Promise<any>
 
+  abstract getProductMotorcycleByType(id : number): Promise<any>
+
 }

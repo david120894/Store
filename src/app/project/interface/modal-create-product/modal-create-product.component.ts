@@ -83,10 +83,8 @@ export class ModalCreateProductComponent implements OnInit {
       await this.motorcycleUseCase.createProductMotorcycle(formData)
       this.ngbActiveModal.close('success')
     } catch (err) {
-      console.error('Error creating product', err)
       this.ngbActiveModal.close('error')
     }
-    console.log(product)
   }
 
   onFileSelected(event: any) {

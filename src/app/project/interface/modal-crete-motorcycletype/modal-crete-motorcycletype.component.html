@@ -24,7 +24,7 @@
         <th>
           Tipo de Moto
         </th>
-        <th>
+        <th class="text-center">
           Acciones
         </th>
       </tr>
@@ -35,7 +35,7 @@
             <td class="width-table">
               {{ motorcycleType.motorcycleType }}
             </td>
-            <td>
+            <td class="d-flex justify-content-center">
               <div class="btn-group">
                 <button class="btn btn-outline-danger" (click)="deleteMotorcycleType(motorcycleType.id)"
                         ngbTooltip="Eliminar">

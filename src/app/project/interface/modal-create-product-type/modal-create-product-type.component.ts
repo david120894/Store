@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
-import {NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbTooltip} from "@ng-bootstrap/ng-bootstrap";
 import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
 
 @Component({
@@ -15,8 +15,11 @@ import {MotorcycleUseCase} from "../../domain/motorcycle.usecase";
 })
 export class ModalCreateProductTypeComponent implements OnInit {
 
+  editProductMotorcycleType = false;
+  dataEditProductMotorcycleType: any
   listProductType: any
-  constructor(private readonly motorcycleUseCase: MotorcycleUseCase){
+  constructor(private readonly motorcycleUseCase: MotorcycleUseCase,
+              private ngbActiveModal: NgbActiveModal){
 
   }
   formProductType : FormGroup = new FormGroup({
@@ -34,10 +37,37 @@ export class ModalCreateProductTypeComponent implements OnInit {
     this.listProductType = await this.motorcycleUseCase.getProductMotorcycleType()
   }
 
+  async saveProductMotorcycleType() {
+    const params = {
+      typeName: this.form['typeName'].value
+    }
+    await this.motorcycleUseCase.createProductMotorcycleType(params)
+    await this.getProductMotorcycleType()
+    this.formProductType.reset()
+  }
   deleteProductType(id:number) {
 
   }
-  editProductType(id:number) {
+  async editProductType(id:number) {
+    this.editProductMotorcycleType = true;
+    this.dataEditProductMotorcycleType = await this.motorcycleUseCase.getProductMotorcycleTypeId(id)
+    this.formProductType.patchValue({
+      typeName: this.dataEditProductMotorcycleType.typeName
+    })
+  }
 
+  async updateProductMotorcycleType() {
+    const params = {
+      id: this.dataEditProductMotorcycleType.id,
+      typeName: this.form['typeName'].value
+    }
+    console.log(params)
+    await this.motorcycleUseCase.updateProductMotorcycleType(params, this.dataEditProductMotorcycleType.id)
+    await this.getProductMotorcycleType()
+    this.formProductType.reset()
+    this.editProductMotorcycleType = false;
+  }
+  close() {
+    this.ngbActiveModal.close()
   }
 }

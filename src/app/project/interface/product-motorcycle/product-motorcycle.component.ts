@@ -38,6 +38,11 @@ export class ProductMotorcycleComponent implements OnInit {
 
   openModalCreateProduct() {
     const modalRef = this.ngbModal.open(ModalCreateProductComponent, { size: 'xl'})
+    modalRef.result.then(async (result) => {
+      if (result == 'success') {
+        await this.getProduct()
+      }
+    })
   }
 
   openModalCreateProductType() {

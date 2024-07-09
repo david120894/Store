@@ -141,4 +141,25 @@ export class MotorcycleRestRepository implements MotorcycleRepository {
       this.httpMotorcycle.get(url)
     )
   }
+
+  getProductMotorcycleTypeId(id: number): Promise<any> {
+    const url = `${this.url}/product_type/view/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.get(url)
+    )
+  }
+
+  createProductMotorcycleType(body: any): Promise<any> {
+    const url = `${this.url}/product_type/create`
+    return lastValueFrom(
+      this.httpMotorcycle.post(url, body)
+    )
+  }
+
+  updateProductMotorcycleType(body: any, id: number): Promise<any> {
+    const url = `${this.url}/product_type/update/${id}`
+    return lastValueFrom(
+      this.httpMotorcycle.put(url, body)
+    )
+  }
 }

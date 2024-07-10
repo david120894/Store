@@ -12,6 +12,10 @@ export abstract class MotorcycleRepository {
 
   abstract getMotorcycleById(id: number): Promise<any>
 
+  abstract getMotorcycleByMotorcycleType(id: number): Promise<any>
+
+  abstract getMotorcycleByMotorcycleBrand(id: number): Promise<any>
+
   abstract getBrandMotorcycle(): Promise<any>
 
   abstract getBrandMotorcycleById(id: number): Promise<any>
@@ -19,7 +23,6 @@ export abstract class MotorcycleRepository {
   abstract createBrandMotorcycle(body: Brandcycle): Promise<any>
 
   abstract updateBrandMotorcycle(id: number, body: Brandcycle): Promise<any>
-
 
   abstract getMotorcycleType(): Promise<any>
 
@@ -49,6 +52,6 @@ export abstract class MotorcycleRepository {
 
   abstract updateProductMotorcycleType(body: any, id: number): Promise<any>
 
-  abstract getProductMotorcycleByType(id : number): Promise<any>
+  abstract getProductMotorcycleByType(id: number): Promise<any>
 
 }

@@ -9,9 +9,5 @@ import {Router, RouterModule} from "@angular/router";
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
-  constructor(private router: Router) { }
-  navigateToProducts(name:string){
-    this.router.navigate(['/view-products'],{queryParams:{productType: name}});
-  }
+  protected readonly RouterModule = RouterModule;
 }

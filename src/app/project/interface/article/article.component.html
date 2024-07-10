@@ -1,12 +1,26 @@
-
 <div class="mt-1 container">
   <br>
+  <div class="row" [formGroup]="formGroupFilter">
+    <label class="col-sm-12 col-md-2">
+      Tipo de Moto
+    </label>
+    <div class="col-sm-12 col-md-5">
+      <ng-select type="text"
+                 formControlName="motorcycleType"
+      [items]="dataMotorcycleType"
+      bindValue="id"
+      bindLabel="motorcycleType"
+      (change)="getFilterMotorcycleType()">
+      </ng-select>
+    </div>
+  </div>
+  <hr>
   <div class="row">
     @for (motorCycle of dataMotorcycle; track motorCycle) {
       <div class="col-sm-12 col-md-4">
         <div class="card mb-3">
           <div class="card-body">
-            <div class="d-flex justify-content-center" >
+            <div class="d-flex justify-content-center">
               <img class="" [src]="getImage(motorCycle.image)" alt="">
             </div>
             <strong>Marca:</strong> {{ motorCycle.brandcycle?.brandcycle }}
@@ -19,7 +33,7 @@
             <br>
             <strong>Color:</strong> {{ motorCycle.color }}
             <br>
-            <strong>Precio: </strong>{{'S/'}} {{ motorCycle.price }}
+            <strong>Precio: </strong>{{ 'S/' }} {{ motorCycle.price }}
           </div>
         </div>
       </div>

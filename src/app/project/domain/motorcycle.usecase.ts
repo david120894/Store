@@ -11,6 +11,10 @@ export abstract class MotorcycleUseCase {
 
   abstract getMotorcycleById(id: number): Promise<any>
 
+  abstract getMotorcycleByMotorcycleType(id: number): Promise<any>
+
+  abstract getMotorcycleByMotorcycleBrand(id: number): Promise<any>
+
   abstract getBrandMotorcycle(): Promise<any>
 
   abstract getBrandMotorcycleById(id: number): Promise<any>
@@ -47,6 +51,6 @@ export abstract class MotorcycleUseCase {
 
   abstract updateProductMotorcycleType(body: any, id: number): Promise<any>
 
-  abstract getProductMotorcycleByType(id : number): Promise<any>
+  abstract getProductMotorcycleByType(id: number): Promise<any>
 
 }
